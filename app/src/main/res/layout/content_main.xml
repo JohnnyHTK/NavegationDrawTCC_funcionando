@@ -7,19 +7,29 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.martinsj.navegationdraw.MainActivity"
     tools:showIn="@layout/app_bar_main">
-    
+
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="371dp"
         android:layout_height="487dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="12dp">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="173dp"
-            android:layout_height="135dp"
-            android:text="TextView" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="173dp"
+                android:layout_height="33dp"
+                android:text="Principal"
+                android:textSize="30sp"
+                tools:layout_editor_absoluteX="131dp"
+                tools:layout_editor_absoluteY="207dp" />
+        </RelativeLayout>
     </FrameLayout>
 
 
