@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="205dp"
-            android:text="TextView"
+            android:text="3 tela"
             android:textSize="50sp"
             tools:text="3 tela"
             android:layout_alignParentTop="true"

@@ -12,12 +12,11 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="205dp"
-            android:text="TextView"
-            android:textSize="50sp"
-            tools:text="2 tela"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="205dp"
+            android:text="2 tela"
+            android:textSize="50sp" />
     </RelativeLayout>
 
 </LinearLayout>
