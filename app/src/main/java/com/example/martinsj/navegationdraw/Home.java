@@ -11,13 +11,14 @@ import android.view.ViewGroup;
  * Created by martinsj on 06/06/2017.
  */
 
-public class Tela1 extends Fragment {
+public class Home extends Fragment {
 
     View MyView;
 
-    @Nullable    @Override
+    @Nullable
+    @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        MyView = inflater.inflate(R.layout.tela1,container, false);
+        MyView = inflater.inflate(R.layout.content_main,container, false);
         return MyView;
 
 

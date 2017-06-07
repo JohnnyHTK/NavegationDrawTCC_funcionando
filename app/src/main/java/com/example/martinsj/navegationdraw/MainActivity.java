@@ -83,7 +83,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         FragmentManager fragmentMenager= getFragmentManager();
 
-        if (id == R.id.nav_tela1) {
+        if (id == R.id.nav_home) {
+            fragmentMenager.beginTransaction().replace(R.id.content_frame , new Home()).commit();
+
+
+            // Handle the camera action
+        } else if (id == R.id.nav_tela1) {
             fragmentMenager.beginTransaction().replace(R.id.content_frame , new Tela1()).commit();
 
 
@@ -94,9 +99,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_tela3) {
             fragmentMenager.beginTransaction().replace(R.id.content_frame , new Tela3()).commit();
 
-        } else if (id == R.id.nav_manage) {
+        }
+        else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        }
+        else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
