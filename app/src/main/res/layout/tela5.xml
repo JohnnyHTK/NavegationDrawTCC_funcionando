@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:ems="10"
+            android:hint="Assunto"
+            android:inputType="textPersonName"
+            android:textStyle="italic"
+            android:layout_below="@+id/nome"
+            android:layout_alignLeft="@+id/nome"
+            android:layout_alignStart="@+id/nome" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="34dp"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textPersonName"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/email"
+            android:layout_alignStart="@+id/email"
+            android:layout_below="@+id/email"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="textPersonName"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/menssagem"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/subject"
+            android:layout_marginTop="21dp"
+            android:ems="10"
+            android:hint="Menssagem"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/enviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:longClickable="false"
+            android:text="Enviar"
+            android:layout_below="@+id/menssagem"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="27dp" />
+    </RelativeLayout>
+
+</LinearLayout>

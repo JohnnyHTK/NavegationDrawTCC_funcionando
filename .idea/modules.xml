@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NavegationDraw.iml" filepath="$PROJECT_DIR$/NavegationDraw.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NavegationDrawTCC.iml" filepath="$PROJECT_DIR$/NavegationDrawTCC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NavegationDrawTCC - Funcionando.iml" filepath="$PROJECT_DIR$/NavegationDrawTCC - Funcionando.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

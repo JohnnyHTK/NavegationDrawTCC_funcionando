@@ -17,6 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -29,51 +31,16 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-//    final Context context = this;
-//    private Button button;
-//    private EditText editText;
-private EditText editText;
+    private EditText editText;
     final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
-
-     /*   Button btnGerar = (Button) findViewById(R.id.button);
-
-       btnGerar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String text20r = editText.getText().toString();
-                MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-                try {
-
-
-                    BitMatrix bitMatrix=  multiFormatWriter.encode(text20r, BarcodeFormat.QR_CODE,200,200);
-                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                    Intent intent =  new Intent(context, com.example.martinsj.navegationdraw.Tela1.class);
-                    intent.putExtra("pic",bitmap);
-                    context.startActivity(intent);
-                } catch (WriterException e) {
-                    e.printStackTrace();
-                }
-            }
-        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -83,6 +50,11 @@ private EditText editText;
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
+
 
 
     }
@@ -124,68 +96,32 @@ private EditText editText;
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        FragmentManager fragmentMenager= getFragmentManager();
+        FragmentManager fragmentMenager = getFragmentManager();
 
         if (id == R.id.nav_home) {
-            fragmentMenager.beginTransaction().replace(R.id.content_frame , new Home()).commit();
+            fragmentMenager.beginTransaction().replace(R.id.content_frame, new Home()).commit();
 
 
             // Handle the camera action
         } else if (id == R.id.nav_tela1) {
-            fragmentMenager.beginTransaction().replace(R.id.content_frame , new Tela1()).commit();
-
-            QrActivity qra = new QrActivity();
-            final Button btnGerar = (Button) findViewById(R.id.button);
-
-            btnGerar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    //Adicionando o botão de gerar qr code DENTRO da classe QR Activity
-                    btnGerar.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            String text20r = editText.getText().toString();
-                            MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-                            try {
-
-
-                                BitMatrix bitMatrix=  multiFormatWriter.encode(text20r, BarcodeFormat.QR_CODE,200,200);
-                                BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                                Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                                Context context = null;
-                                Intent intent =  new Intent(context, com.example.martinsj.navegationdraw.Tela1.class);
-                                intent.putExtra("pic",bitmap);
-                                context.startActivity(intent);
-                            } catch (WriterException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-
-
-                    });
-                }
-            });
-
-
+            fragmentMenager.beginTransaction().replace(R.id.content_frame, new Tela1()).commit();
 
 
             // Handle the camera action
         } else if (id == R.id.nav_tela2) {
-            fragmentMenager.beginTransaction().replace(R.id.content_frame , new Tela2()).commit();
+            fragmentMenager.beginTransaction().replace(R.id.content_frame, new Tela2()).commit();
 
         } else if (id == R.id.nav_tela3) {
-            fragmentMenager.beginTransaction().replace(R.id.content_frame , new Tela3()).commit();
+            fragmentMenager.beginTransaction().replace(R.id.content_frame, new Tela3()).commit();
 
-        }
-        else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_tela4) {
+            fragmentMenager.beginTransaction().replace(R.id.content_frame, new Tela4()).commit();
 
-        }
-        else if (id == R.id.nav_share) {
+        }else if (id == R.id.nav_tela5) {
+            fragmentMenager.beginTransaction().replace(R.id.content_frame, new Tela5()).commit();
 
-        } else if (id == R.id.nav_send) {
+        }else if (id == R.id.nav_compartilhar) {
+            fragmentMenager.beginTransaction().replace(R.id.content_frame, new Compartilhar()).commit();
 
         }
 

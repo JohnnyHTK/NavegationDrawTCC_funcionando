@@ -13,12 +13,37 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="205dp"
-            android:text="3 tela"
-            android:textSize="50sp"
-            tools:text="3 tela"
+            android:layout_marginTop="20dp"
+            android:text="Sobre"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textStyle="bold"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="15dp"
+            android:id="@+id/relativeLayout2">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="344dp"
+                android:layout_height="match_parent"
+                android:lineSpacingExtra="15sp"
+                android:text="Este aplicativo tem por função facilitar o cotidiano do aluno. Através dele o usuário poderá fazer downloads de arquivos gerados por QR Code e armazená-los no próprio dispositivo. Suas funções são de fácil uso, sendo elas gerar, scannear (fazer a leitura) de um QR Code, contendo informações referentes ao ambiente escolar, como listas de exercícios, calendário de provas e avisos de suma importância ao aluno."
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </LinearLayout>
