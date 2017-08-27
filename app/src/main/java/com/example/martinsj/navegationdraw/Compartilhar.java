@@ -19,6 +19,7 @@ public class Compartilhar extends Fragment{
     @Nullable
     @Override
 
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         MyView = inflater.inflate(R.layout.compartilhar,container, false);
 

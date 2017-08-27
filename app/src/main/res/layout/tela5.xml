@@ -7,18 +7,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/subject"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-            android:ems="10"
-            android:hint="Assunto"
-            android:inputType="textPersonName"
-            android:textStyle="italic"
-            android:layout_below="@+id/nome"
-            android:layout_alignLeft="@+id/nome"
-            android:layout_alignStart="@+id/nome" />
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent">-->
 
         <EditText
             android:id="@+id/email"
@@ -45,6 +36,19 @@
             android:textStyle="italic" />
 
         <EditText
+            android:id="@+id/subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:ems="10"
+            android:hint="Assunto"
+            android:inputType="textPersonName"
+            android:textStyle="italic"
+            android:layout_below="@+id/nome"
+            android:layout_alignLeft="@+id/nome"
+            android:layout_alignStart="@+id/nome" />
+
+        <EditText
             android:id="@+id/menssagem"
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -57,6 +61,7 @@
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textStyle="italic" />
+    <!--</android.support.design.widget.TextInputLayout>-->
 
         <Button
             android:id="@+id/enviar"
