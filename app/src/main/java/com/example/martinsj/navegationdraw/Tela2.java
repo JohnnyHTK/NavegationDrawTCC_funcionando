@@ -73,7 +73,7 @@ public class Tela2 extends Fragment {
 
 
         cameraPreview = (SurfaceView) MyView.findViewById(R.id.cameraPreview);
-        txtResult = (TextView) MyView.findViewById(R.id.txtResult);
+        //txtResult = (TextView) MyView.findViewById(R.id.txtResult);
 
         barcodeDetector = new BarcodeDetector.Builder(this.getActivity())
                 .setBarcodeFormats(Barcode.QR_CODE)
