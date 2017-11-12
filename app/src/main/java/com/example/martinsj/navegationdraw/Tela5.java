@@ -34,14 +34,14 @@ public class Tela5 extends Fragment {
             public void onClick(View v) {
 
                 EditText nome = (EditText) MyView.findViewById(R.id.nome);
-                EditText email = (EditText) MyView.findViewById(R.id.email);
+//                EditText email = (EditText) MyView.findViewById(R.id.email);
                 EditText menssagem = (EditText) MyView.findViewById(R.id.menssagem);
                 EditText subject = (EditText) MyView.findViewById(R.id.subject);
                 final Alertas alertas = new Alertas();
 
                 // quando não é colocado um dos campos e-mail, nome, assunto e menssagem da erro e chama a classe Alertas
                 if (nome.getText().toString().equals("")
-                        || email.getText().toString().equals("")
+//                        || email.getText().toString().equals("")
                         || subject.getText().toString().equals("")
                         || menssagem.getText().toString().equals("")){
 
@@ -59,9 +59,9 @@ public class Tela5 extends Fragment {
                     i.setData(Uri.parse("mailto:"));
                     i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tcc.ecompo@gmail.com"});// e-mail para onde será enviado
                     i.putExtra(Intent.EXTRA_SUBJECT, subject.getText().toString());// pega o assunto do campo e joga no assunto do e-mail
-                    i.putExtra(Intent.EXTRA_TEXT, "Nome: " + nome.getText().toString() +
-                            "\nE-mail: "+ email.getText().toString()+"\n\n\n"
-                            + menssagem.getText().toString());
+                    i.putExtra(Intent.EXTRA_TEXT, "Nome: " + nome.getText().toString()+
+//                            "\nE-mail: "+ email.getText().toString()+
+                                    "\n\n\n"+ menssagem.getText().toString());
 
 
 

@@ -1,6 +1,8 @@
 package com.example.martinsj.navegationdraw;
 
 import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -20,6 +22,7 @@ import android.util.SparseArray;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.CameraSource;
@@ -36,12 +39,13 @@ import java.io.IOException;
 public class Tela2 extends Fragment {
 
     View MyView;
-
+    ImageButton openlink;
     SurfaceView cameraPreview;
     TextView txtResult;
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
+    public String link;
 
 
     @Override
@@ -73,8 +77,22 @@ public class Tela2 extends Fragment {
 
 
         cameraPreview = (SurfaceView) MyView.findViewById(R.id.cameraPreview);
-        //txtResult = (TextView) MyView.findViewById(R.id.txtResult);
+        txtResult = (TextView) MyView.findViewById(R.id.txtResult);
+        openlink = (ImageButton) MyView.findViewById(R.id.openlink);
 
+        openlink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(txtResult.getText().length() == 0){//como o tamanho é zero é nulla aresposta
+
+                    txtResult.setError("Nenhum QrCode ainda foi lido");
+                }else{
+                    Uri uri = Uri.parse(link);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            }
+        });
         barcodeDetector = new BarcodeDetector.Builder(this.getActivity())
                 .setBarcodeFormats(Barcode.QR_CODE)
                 .build();
@@ -129,7 +147,11 @@ public class Tela2 extends Fragment {
                             //Vibra ao detectar o QR Code
                             Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);
-                            txtResult.setText(qrcodes.valueAt(0).displayValue);
+                             link = qrcodes.valueAt(0).displayValue;
+                            txtResult.setText("Qr Code Lido com Sucesso");
+
+
+
                         }
                     });
                 }

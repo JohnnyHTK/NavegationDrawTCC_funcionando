@@ -6,25 +6,25 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/background_light">
+        android:layout_height="match_parent">
+        <!--android:background="@android:color/background_light">-->
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="252dp"
-            app:srcCompat="@drawable/obg"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView3"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="252dp"-->
+            <!--app:srcCompat="@drawable/obg"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true" />-->
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            app:srcCompat="@drawable/felicidade"
-            android:layout_below="@+id/imageView3"
-            android:layout_centerHorizontal="true" />
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="23dp"-->
+            <!--app:srcCompat="@drawable/felicidade"-->
+            <!--android:layout_below="@+id/imageView3"-->
+            <!--android:layout_centerHorizontal="true" />-->
     </RelativeLayout>
 </LinearLayout>

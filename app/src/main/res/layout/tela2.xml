@@ -36,6 +36,34 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="36dp" />
 
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:text="@string/result_text_default"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="390dp"
+            android:layout_marginBottom="12dp"
+            android:layout_alignBottom="@+id/openlink"
+            android:layout_toLeftOf="@+id/openlink"
+            android:layout_toStartOf="@+id/openlink"
+            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp" />
+
+        <ImageButton
+            android:id="@+id/openlink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/openlink"
+            android:layout_marginRight="21dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/cameraPreview"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
