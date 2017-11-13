@@ -65,7 +65,6 @@ public class Tela1 extends Fragment {
                 Toast.makeText(getActivity(), "Uploaded Successfully!",
                         Toast.LENGTH_LONG).show();
             } else if (msg.what == -1) {
-
                 Toast.makeText(getActivity(), "Connection Success!",
                         Toast.LENGTH_LONG).show();
             }
@@ -230,18 +229,18 @@ public class Tela1 extends Fragment {
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try {
 
-
-                    Context context = getActivity();
-
-
-                    BitMatrix bitMatrix = multiFormatWriter.encode(text20r, BarcodeFormat.QR_CODE, 200, 200);
-                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                    Intent intent = new Intent(context, QrActivity.class);
-                    intent.putExtra("pic", bitmap);
-                    context.startActivity(intent);
+                    if(TEMP_FILENAME!="") {
+                        Context context = getActivity();
 
 
+                        BitMatrix bitMatrix = multiFormatWriter.encode(text20r, BarcodeFormat.QR_CODE, 200, 200);
+                        BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                        Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                        Intent intent = new Intent(context, QrActivity.class);
+                        intent.putExtra("pic", bitmap);
+                        context.startActivity(intent);
+
+                    }
                 } catch (WriterException e) {
                     e.printStackTrace();
                 }

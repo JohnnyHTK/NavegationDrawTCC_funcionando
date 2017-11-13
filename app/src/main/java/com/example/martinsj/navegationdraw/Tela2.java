@@ -87,9 +87,13 @@ public class Tela2 extends Fragment {
 
                     txtResult.setError("Nenhum QrCode ainda foi lido");
                 }else{
-                    Uri uri = Uri.parse(link);
+                    Uri uri = Uri.parse("googlechrome://navigate?url="+link);
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setPackage("com.android.chrome");
                     startActivity(intent);
+
+
                 }
             }
         });
@@ -148,7 +152,7 @@ public class Tela2 extends Fragment {
                             Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);
                              link = qrcodes.valueAt(0).displayValue;
-                            txtResult.setText("Qr Code Lido com Sucesso");
+                            txtResult.setText(link);
 
 
 
