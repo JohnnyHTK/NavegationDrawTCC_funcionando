@@ -99,6 +99,8 @@ public class Tela1 extends Fragment {
                 Log.i(TAG, "Selected File Path:" + selectedFilePath);
 
                 if (selectedFilePath != null && !selectedFilePath.equals("")) {
+//                    Cifracesar cc = new Cifracesar();
+//                    cc.encrypt(selectedFilePath);
                     editText.setText(selectedFilePath);
                 } else {
 //                    Toast.makeText(this, "Cannot upload file to server", Toast.LENGTH_SHORT).show();
@@ -226,6 +228,9 @@ public class Tela1 extends Fragment {
             public void onClick(View v) {
 
                 String text20r = "ftp://u582239733:123456@materiasbruno.hol.es/"+TEMP_FILENAME;// aqui coloca o link do servidor ftp, onde está o arquivo
+                Cifracesar cc = new Cifracesar();
+
+
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try {
 
@@ -233,12 +238,13 @@ public class Tela1 extends Fragment {
                         Context context = getActivity();
 
 
-                        BitMatrix bitMatrix = multiFormatWriter.encode(text20r, BarcodeFormat.QR_CODE, 200, 200);
+                        BitMatrix bitMatrix = multiFormatWriter.encode(cc.encrypt(text20r), BarcodeFormat.QR_CODE, 200, 200);
                         BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                         Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                         Intent intent = new Intent(context, QrActivity.class);
                         intent.putExtra("pic", bitmap);
                         context.startActivity(intent);
+
 
                     }
                 } catch (WriterException e) {

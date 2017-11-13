@@ -87,7 +87,8 @@ public class Tela2 extends Fragment {
 
                     txtResult.setError("Nenhum QrCode ainda foi lido");
                 }else{
-                    Uri uri = Uri.parse("googlechrome://navigate?url="+link);
+                    Cifracesar cc = new Cifracesar();
+                    Uri uri = Uri.parse("googlechrome://navigate?url="+cc.decrypt(link));
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.setPackage("com.android.chrome");
@@ -143,6 +144,8 @@ public class Tela2 extends Fragment {
 
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
+
+//                cc.encrypt(selectedFilePath);
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
                 if (qrcodes.size() != 0) {
                     txtResult.post(new Runnable() {
