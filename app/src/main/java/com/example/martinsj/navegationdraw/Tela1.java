@@ -1,17 +1,24 @@
 package com.example.martinsj.navegationdraw;
 
+import android.*;
+import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +37,9 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -52,7 +62,32 @@ public class Tela1 extends Fragment {
     private ProgressDialog pd;
 
     private ImageButton button, ivAttachment;
-    private EditText editText;
+    private TextView editText;
+
+    String[] permissions = new String[]{
+            Manifest.permission.INTERNET,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.VIBRATE,
+            Manifest.permission.RECORD_AUDIO,
+    };
+
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(getActivity(), p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(getActivity(), listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), 100);
+            return false;
+        }
+        return true;
+    }
 
 
     private Handler handler = new Handler() {
@@ -64,9 +99,15 @@ public class Tela1 extends Fragment {
             } else if (msg.what == 2) {
                 Toast.makeText(getActivity(), "Uploaded Successfully!",
                         Toast.LENGTH_LONG).show();
-            } else if (msg.what == -1) {
+            } else if (msg.what == 1) {
                 Toast.makeText(getActivity(), "Connection Success!",
                         Toast.LENGTH_LONG).show();
+            } else if (msg.what == -1) {
+            Toast.makeText(getActivity(), "Connection Failed!",
+                    Toast.LENGTH_LONG).show();
+            } else if (msg.what == -2) {
+            Toast.makeText(getActivity(), "Uploaded Failed!",
+                    Toast.LENGTH_LONG).show();
             }
 
         }
@@ -127,7 +168,7 @@ public class Tela1 extends Fragment {
                 status = ftpclient.ftpConnect(host, username, password, 21);
                 if (status == true) {
                     Log.d(TAG, "Connection Sucess");
-                    handler.sendEmptyMessage(-1);
+                    handler.sendEmptyMessage(1);
                     System.out.println("AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
                 } else {
                     Log.d(TAG, "Connection failed");
@@ -154,8 +195,9 @@ public class Tela1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         MyView = inflater.inflate(R.layout.tela1, container, false);
 
+        checkPermissions();
 
-        editText = (EditText) MyView.findViewById(R.id.editText);
+        editText = (TextView) MyView.findViewById(R.id.editText);
         button = (ImageButton) MyView.findViewById(R.id.button);
         ivAttachment = (ImageButton) MyView.findViewById(R.id.ivAttachment);
         btnLoginFtp = (Button) MyView.findViewById(R.id.btnLoginFtp);
@@ -205,7 +247,7 @@ public class Tela1 extends Fragment {
                                 handler.sendEmptyMessage(2);
                             } else {
                                 Log.d(TAG, "Upload failed");
-                                handler.sendEmptyMessage(-1);
+                                handler.sendEmptyMessage(-2);
                             }
                         }
                     }).start();
@@ -259,5 +301,15 @@ public class Tela1 extends Fragment {
 
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (requestCode == 100) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // do something
+            }
+            return;
+        }
+    }
 
 }
