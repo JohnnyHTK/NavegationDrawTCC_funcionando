@@ -88,12 +88,12 @@ public class Tela2 extends Fragment {
                     txtResult.setError("Nenhum QrCode ainda foi lido");
                 }else{
                     Cifracesar cc = new Cifracesar();
+//                    Uri uri = Uri.parse("googlechrome://navigate?url="+cc.decrypt(link));
                     Uri uri = Uri.parse("googlechrome://navigate?url="+cc.decrypt(link));
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.setPackage("com.android.chrome");
                     startActivity(intent);
-
 
                 }
             }

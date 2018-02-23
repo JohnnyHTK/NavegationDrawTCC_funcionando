@@ -92,7 +92,7 @@ public class Tela1 extends Fragment {
 
     private Handler handler = new Handler() {
 
-        public void handleMessage(android.os.Message msg) {
+            public void handleMessage(android.os.Message msg) {
 
             if (pd != null && pd.isShowing()) {
                 pd.dismiss();
@@ -155,10 +155,13 @@ public class Tela1 extends Fragment {
 
         // aqui vai os valores de usuário: Host, nome de usuario e a senha.
 
-        final String host = "ftp.materiasbruno.hol.es";//edtHostName.getText().toString().trim();
-        final String username = "u582239733"; //edtUserName.getText().toString().trim();
-        final String password = "123456";//edtPassword.getText().toString().trim();
+//        final String host = "ftp.materiasbruno.hol.es";//edtHostName.getText().toString().trim();
+//        final String username = "u582239733"; //edtUserName.getText().toString().trim();
+//        final String password = "123456";//edtPassword.getText().toString().trim();
 
+            final String host = "f19-preview.awardspace.net";
+            final String username = "2630818_jonathan";
+            final String password = "Controle5";
 //        pd = ProgressDialog.show(MainActivity.this, "", "Connecting...",
 //                true, false);
 
@@ -169,7 +172,7 @@ public class Tela1 extends Fragment {
                 if (status == true) {
                     Log.d(TAG, "Connection Sucess");
                     handler.sendEmptyMessage(1);
-                    System.out.println("AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+                    //System.out.println("");
                 } else {
                     Log.d(TAG, "Connection failed");
                     handler.sendEmptyMessage(-1);
@@ -269,7 +272,7 @@ public class Tela1 extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String text20r = "ftp://u582239733:123456@materiasbruno.hol.es/"+TEMP_FILENAME;// aqui coloca o link do servidor ftp, onde está o arquivo
+                String text20r = "ftp://2630818_jonathan:Controle@f19-preview.awardspace.net/"+TEMP_FILENAME;// aqui coloca o link do servidor ftp, onde está o arquivo
                 Cifracesar cc = new Cifracesar();
 
 
